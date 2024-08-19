@@ -1,0 +1,64 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+}
+
+*{ -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+  outline: none !important;
+  
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Title Styling */
+.title {
+    font-size: 3rem;
+    color: #00ccff; /* Neon blue */
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff;
+}
+
+/* Button Container Styling */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Button Styling */
+.mode-button {
+    background-color: #222;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px #ff66cc; /* Neon pink glow */
+}
+
+/* Button Hover Effect */
+.mode-button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+/* Button Active Effect */
+.mode-button:active {
+    background-color: #444;
+}
+

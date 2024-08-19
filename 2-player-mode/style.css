@@ -1,0 +1,161 @@
+/* General body styling */
+body {
+    background-color: #121212; /* Darker background for a more immersive experience */
+    color: #e0e0e0; /* Light text color for better readability */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+*{ -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+  outline: none !important;
+
+}
+/* Cursor styling */
+.cursor {
+    width: 24px;
+    height: 24px;
+    background-color: #00ffcc; /* Neon teal color */
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); /* Enhanced neon glow */
+    transform: scale(1); /* Default scale */
+}
+
+/* Click effect */
+.click-effect {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 165, 0, 0.5); /* Semi-transparent orange */
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transform: scale(0);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.8); /* Orange glow effect */
+}
+
+/* Tic-Tac-Toe board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 350px;
+    height: 350px;
+    margin: 50px auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background with slight transparency */
+    border: 3px solid #333;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); /* Strong glow effect */
+}
+/* Cell fade-out effect */
+.cell.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Smooth transition for fading out */
+}
+
+/* Cell styling (updated to include default visibility) */
+.cell {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly visible background */
+    border: 2px solid #333;
+    border-radius: 10px;
+    transition: background-color 0.4s ease, transform 0.3s ease, opacity 0.5s ease; /* Include opacity transition */
+}
+
+/* Cell hover effect */
+.cell:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly brighter on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+
+/* Cell hover effect */
+.cell:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly brighter on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Cell states */
+.cell.x {
+    color: #00ccff; /* Neon blue for X */
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #00ccff; /* Enhanced neon glow */
+}
+
+.cell.o {
+    color: #ff66cc; /* Neon pink for O */
+    text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc; /* Enhanced neon glow */
+}
+
+/* Animations */
+.cell.x, .cell.o {
+    animation: fadeIn 0.5s ease;
+}
+
+.cell.x::after, .cell.o::after {
+    content: attr(data-symbol); /* Display the X or O */
+    font-size: 4rem;
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 0.5s forwards; /* Smooth fade-in */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Message element styling */
+#message {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #ff66cc; /* Neon glow effect for text */
+    opacity: 0; /* Start hidden */
+    transform: scale(0.8); /* Slightly scaled down */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for fade-in and scaling */
+}
+
+/* Message visible class */
+#message.visible {
+    opacity: 1;
+    transform: scale(1); /* Scale to normal size */
+}
+
+
+/* Restart button styling */
+#restartButton {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    background-color: #333;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Button glow effect */
+}
+
+#restartButton:hover {
+    background-color: #555;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Snapping Slider</title>
+    <style>
+        .slider-container {
+            width: 300px;
+            margin: 50px auto;
+        }
+
+        .slider {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: background 0.15s;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <input type="range" min="0" max="100" value="50" step="1" class="slider" id="slider">
+</div>
+
+<script>
+    const slider = document.getElementById('slider');
+
+    function snapToPoint() {
+        const value = slider.value;
+        const nearest = Math.round(value / 50) * 50;
+        slider.style.transition = 'all 0.3s ease';
+        slider.value = nearest;
+    }
+
+    slider.addEventListener('input', function () {
+        slider.style.transition = 'none'; // Disable transition while sliding
+    });
+
+    slider.addEventListener('change', snapToPoint);
+
+    slider.addEventListener('mouseup', snapToPoint);
+    slider.addEventListener('touchend', snapToPoint);
+</script>
+
+</body>
+</html>
